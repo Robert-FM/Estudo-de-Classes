@@ -1,0 +1,94 @@
+-----------------------------------------------------------------------------------------------
+
+ligado = False
+canal = 2
+
+def liga_tv():
+    global ligado
+    ligado = True
+
+def desliga_tv():
+    global ligado
+    ligado = False
+
+-----------------------------------------------------------------------------------------------
+
+tv = {'ligado': False,'canal': 2}
+
+def liga_tv(tv):
+    tv['ligado'] = True
+
+def desliga_tv(tv):
+    tv['ligado'] = False
+
+-----------------------------------------------------------------------------------------------
+
+tv_sala = {'ligado': False,'canal': 2}
+tv_quarto = {'ligado': False,'canal': 4}
+
+def liga_tv(tv):
+    tv['ligado'] = True
+
+def desliga_tv(tv):
+    tv['ligado'] = False
+
+liga_tv(tv_sala)
+desliga_tv(tv_quarto)
+
+-----------------------------------------------------------------------------------------------
+
+tv_sala = {'ligado': False,'canal': 2}
+tv_quarto = {'ligado': False,'canal': 4}
+
+def liga_tv(tv):
+    tv['ligado'] = True
+
+def desliga_tv(tv):
+    tv['ligado'] = False
+
+liga_tv(tv_sala)
+desliga_tv(tv_quarto)
+
+-----------------------------------------------------------------------------------------------
+
+class Televisão: #1
+    def __init__(self): #2
+        self.ligada = False #3
+        self.canal = 2 #4
+
+tv_quarto = Televisão() #5
+print(tv_quarto.ligada) #6
+print(tv_quarto.canal)
+
+tv_sala = Televisão() #7
+tv_sala.ligada = True #8
+tv_sala.canal = 4 #9
+print(tv_quarto.canal)
+print(tv_sala.canal)
+
+-----------------------------------------------------------------------------------------------
+
+class Televisão:
+    def __init__(self):
+        self.ligada = False
+        self.canal = 2
+        self.tamanho = 32
+        self.marca = 'marca'
+
+tv_quarto = Televisão()
+tv_quarto.marca = 'samsung'
+print(tv_quarto.ligada)
+print(tv_quarto.canal)
+print(tv_quarto.marca)
+
+tv_sala = Televisão()
+tv_sala.ligada = True
+tv_sala.canal = 4
+tv_sala.marca = 'TCL'
+print(tv_sala.ligada)
+print(tv_sala.canal)
+print(tv_sala.marca)
+
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
