@@ -1,0 +1,2 @@
+# Estudo-de-Classes
+ **Estudo de Classes** é um método utilizado em diversas áreas do conhecimento para categorizar e analisar conjuntos de elementos com características semelhantes. Em programação orientada a objetos, refere-se à definição de classes e seus atributos, métodos e relações. Já em estatística e aprendizado de máquina, envolve a segmentação de dados em grupos para facilitar análises e previsões. Esse estudo permite estruturar informações de maneira eficiente, otimizando processos e tomada de decisões.
