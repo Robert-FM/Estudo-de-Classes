@@ -90,5 +90,109 @@ print(tv_sala.canal)
 print(tv_sala.marca)
 
 -----------------------------------------------------------------------------------------------
+
+class Televisão:
+    def __init__(self):
+        self.ligada = False
+        self.canal = 2
+    def muda_canal_para_baixo(self): #1
+        self.canal -= 1
+    def muda_canal_para_cima(self): #2
+        self.canal += 1
+    
+tv = Televisão()
+
+tv.muda_canal_para_cima() #3
+tv.muda_canal_para_cima()
+print(tv.canal)
+
+tv.muda_canal_para_baixo() #4
+print(tv.canal)
+
+-----------------------------------------------------------------------------------------------
+
+class Televisão:
+    def __init__(self,canal_inicial,canal_min, canal_max):
+        self.ligada = False
+        self.canal = canal_inicial
+        self.canal_min = canal_min
+        self.canal_max = canal_max
+    def muda_canal_para_baixo(self):
+        if self.canal - 1 >= self.canal_min:
+            self.canal -= 1
+    def muda_canal_para_cima(self):
+        if self.canal + 1 <= self.canal_max:
+            self.canal += 1
+
+tv = Televisão(5,1,99)
+
+print(tv.canal)
+
+for x in range(0,120):
+    tv.muda_canal_para_cima()
+print(tv.canal)
+
+for x in range(0,120):
+    tv.muda_canal_para_baixo()
+print(tv.canal)
+
+-----------------------------------------------------------------------------------------------
+
+class Televisão:
+    def __init__(self,cmin=2,cmax=14):
+        self.ligada = False
+        self.canal = cmin
+        self.canal_min = cmin
+        self.canal_max = cmax
+    def muda_canal_para_baixo(self):
+        if self.canal - 1 >= self.canal_min:
+            self.canal -= 1
+        else:
+            self.canal = self.canal_max
+    def muda_canal_para_cima(self):
+        if self.canal + 1 <= self.canal_max:
+            self.canal += 1
+        else:
+            self.canal = self.canal_min
+
+tv = Televisão()
+
+tv.muda_canal_para_baixo()
+print(tv.canal)
+
+tv.muda_canal_para_cima()
+print(tv.canal)
+
+-----------------------------------------------------------------------------------------------
+
+class Televisão:
+    def __init__(self,min=2,max=14):
+        self.ligada = False
+        self.canal = min
+        self.canal_min = min
+        self.canal_max = max
+    def muda_canal_para_baixo(self):
+        if self.canal - 1 >= self.canal_min:
+            self.canal -= 1
+        else:
+            self.canal = self.canal_max
+        return self.canal
+    
+    def muda_canal_para_cima(self):
+        if self.canal + 1 <= self.canal_max:
+            self.canal += 1
+        else:
+            self.canal = self.canal_min
+        return self.canal
+
+tv = Televisão()
+tv.muda_canal_para_cima()
+print(tv.canal)
+
+tv.muda_canal_para_baixo()
+print(tv.canal)
+
+-----------------------------------------------------------------------------------------------
+
 -----------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------
