@@ -193,6 +193,177 @@ tv.muda_canal_para_baixo()
 print(tv.canal)
 
 -----------------------------------------------------------------------------------------------
+class Televisão:
+    def __init__(self,min=2,max=14):
+        self.ligada = False
+        self.canal = min
+        self.canal_min = min
+        self.canal_max = max
+    def muda_canal_para_baixo(self):
+        if self.canal - 1 >= self.canal_min:
+            self.canal -= 1
+        else:
+            self.canal = self.canal_max
+        return self.canal
+    
+    def muda_canal_para_cima(self):
+        if self.canal + 1 <= self.canal_max:
+            self.canal += 1
+        else:
+            self.canal = self.canal_min
+        return self.canal
+
+
+class ContreloRemoto:
+    def __init__(self,televisão):
+        self.televisão = televisão
+    def liga(self):
+        self.televisão.ligada = True
+    def desligada(self):
+        self.televisão.ligada = False
+    def canal_mais(self):
+        self.televisão.muda_canal_para_cima()
+    def canal_menos(self):
+        self.televisão.muda_canal_para_cima()
+
+tv = Televisão(2,14)
+
+controle = ContreloRemoto(tv)
+
+print(tv.canal)
+
+controle.canal_mais()
+print(tv.canal)
+
+print(tv.ligada)
+
+controle.liga()
+print(tv.ligada)
+
+-----------------------------------------------------------------------------------------------
+
+class Televisão:
+    def __init__(self,min=2,max=14):
+        self.ligada = False
+        self.canal = min
+        self.canal_min = min
+        self.canal_max = max
+    def muda_canal_para_baixo(self):
+        if self.canal - 1 >= self.canal_min:
+            self.canal -= 1
+        else:
+            self.canal = self.canal_max
+        return self.canal
+    
+    def muda_canal_para_cima(self):
+        if self.canal + 1 <= self.canal_max:
+            self.canal += 1
+        else:
+            self.canal = self.canal_min
+        return self.canal
+
+
+class ContreloRemoto:
+    def __init__(self,televisão,pilha):
+        self.televisão = televisão
+        self.pilha = pilha
+    def liga(self):
+        if self.pilha.consumo(1):
+            self.televisão.ligada = True
+    def desligada(self):
+        if self.pilha.consumo(1):
+            self.televisão.ligada = False
+    def canal_mais(self):
+        if self.pilha.consumo(1):
+            self.televisão.muda_canal_para_cima()
+    def canal_menos(self):
+        if self.pilha.consumo(1):
+            self.televisão.muda_canal_para_baixo()
+
+class Pilha:
+    def __init__(self,energia=100):
+        self.energia = energia
+    def consumo(self,consumo):
+        if consumo > self.energia:
+            consumo = self.energia
+        self.energia -= consumo
+        return consumo        
+
+tv = Televisão(2,14)
+pilha = Pilha(5)
+controle = ContreloRemoto(tv,pilha)
+
+print(tv.canal)
+
+print(pilha.energia)
+
+controle.canal_mais()
+controle.canal_mais()
+controle.canal_mais()
+controle.canal_mais()
+print(tv.canal)
+
+print(pilha.energia)
+
+print(tv.canal)
+
+print(pilha.energia)
+
+controle.canal_mais()
+print(tv.canal)
+
+print(pilha.energia)
+
+print(tv.canal)
+
+-----------------------------------------------------------------------------------------------
+class Televisão:
+    def __init__(self,min=2,max=14):
+        self.ligada = False
+        self.canal = min
+        self.canal_min = min
+        self.canal_max = max
+    def muda_canal_para_baixo(self):
+        if not self.ligada:
+            return
+        if self.canal - 1 >= self.canal_min:
+            self.canal -= 1
+        else:
+            self.canal = self.canal_max
+    
+    def muda_canal_para_cima(self):
+        if not self.ligada:
+            return
+        if self.canal + 1 <= self.canal_max:
+            self.canal += 1
+        else:
+            self.canal = self.canal_min
+
+tv = Televisão()  # Cria uma TV com canais de 2 a 14
+
+tv.ligada = True  # Liga a TV
+print(tv.canal)  # Exibe 2 (canal inicial)
+
+tv.muda_canal_para_cima()
+print(tv.canal)  # Exibe 3
+
+tv.muda_canal_para_baixo()
+print(tv.canal)  # Exibe 2
+
+tv.muda_canal_para_baixo()
+print(tv.canal)  # Exibe 14 (pois estava no canal mínimo e voltou para o máximo)
+
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------
